@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-unique-validator');
 
 let addressSchema = new Schema(
     {
@@ -69,6 +70,10 @@ let userSchema = new Schema({
     collection: 'users',
     timestamps: true    // createdAt and updatedAt are set by Mongo automatically
 });
+
+// For the fields we ahve defined as `unique` (email, username)
+// It checks before saving, if there are other documents with the same email or username
+userSchema.plugin(uniqueValidator);
 
 // Collection name User
 // With name 'User' userSchema will be exported
