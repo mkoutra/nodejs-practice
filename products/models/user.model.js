@@ -71,7 +71,7 @@ let userSchema = new Schema({
     timestamps: true    // createdAt and updatedAt are set by Mongo automatically
 });
 
-// For the fields we ahve defined as `unique` (email, username)
+// For the fields we have defined as `unique` (email, username)
 // It checks before saving, if there are other documents with the same email or username
 userSchema.plugin(uniqueValidator);
 

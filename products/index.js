@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger');   // document
+
 const mongoose = require('mongoose');
 
 app.use(express.json());    // To read input json in body
@@ -17,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
 const user = require('./routes/user.routes')
 const userProduct = require('./routes/user.product.routes');
+const product = require('./routes/product.routes');
 
 // When you receive a call to `/api/user` go to file user.routes.js
 // and check the call types that exist there.
@@ -27,6 +31,12 @@ app.use('/api/users', user);
 
 // User actions related to products
 app.use('/api/user-product', userProduct);
+
+app.use('/api/products', product)
+
+app.use('/api-docs',
+        swaggerUi.serve,    // a new server for backend documentation
+        swaggerUi.setup(swaggerDocument.options))
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}.`);

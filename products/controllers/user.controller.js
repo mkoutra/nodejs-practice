@@ -64,9 +64,11 @@ exports.update = async(req, res) => {
     }
 
     try {
+        // Returns the document as it was before update
+        // https://mongoosejs.com/docs/tutorials/findoneandupdate.html
         const result = await User.findOneAndUpdate(
             {username: username},
-            updateUser,
+            updateUser
             //{new: true} // Create if not exist.
         )
         res.json({status: true, data: result});
