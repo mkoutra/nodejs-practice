@@ -1,5 +1,6 @@
 const m2s = require('mongoose-to-swagger');
 const User = require('./models/user.model');
+const Product = require('./models/product.model');
 
 exports.options = {
     "openapi": "3.1.0",
@@ -15,7 +16,8 @@ exports.options = {
     },
     "components": { // Models
         "schemas": {
-            "User": m2s(User)
+            "User": m2s(User),
+            "Product": m2s(Product)
         }
     },
     "servers": [
@@ -36,6 +38,10 @@ exports.options = {
         {
             "name": "Users and Products",
             "description": "Requests for Users and Products"
+        },
+        {
+            "name": "Products",
+            "description": "Requests for products."
         }
     ],
     "paths": {
@@ -256,6 +262,135 @@ exports.options = {
                 "responses": {
                     "200": {
                         "description": "New products added to user"
+                    }
+                }
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": ["Products"],
+                "description": "Returns all products.",
+                "responses": {
+                    "200": {
+                        "description": "List of all products.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Product"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Products"],
+                "description": "Insert new product",
+                "requestBody": {
+                    "description": "Data for product we create",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "product": {"type": "string"},
+                                    "cost": {"type": "numeric"},
+                                    "description": {"type": "string"},
+                                    "quantity": {"type": "numeric"}
+                                },
+                                "required": ["product", "cost", "quantity"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "New product is created",
+                        "schema": {
+                            "$ref": "#/components/schema/Product"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "tags": ["Products"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The product id in the database.",
+                        "type": "string"
+                    }
+                ],
+                "description": "Get product with specific id.",
+                "responses": {
+                    "200": {
+                        "description": "Product result",
+                        "schema": {
+                            "$ref": "#/components/schemas/Product"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["Products"],
+                "description": "Update product",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The product id in the database.",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Product to update",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "product": {"type": "string"},
+                                    "cost": {"type": "numeric"},
+                                    "description": {"type": "string"},
+                                    "quantity": {"type": "numeric"}
+                                },
+                                "required": ["product", "cost", "quantity"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Update Product",
+                        "schema": {
+                            "$ref": "#/components/schema/Product"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Products"],
+                "description": "Deletes product",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The product id in the database.",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product deleted."
                     }
                 }
             }
