@@ -43,9 +43,9 @@ exports.create = async(req, res) => {
 
     try {
         const result = await newUser.save();
-        res.json({status: false, data: result});    // send json
+        res.json({status: true, data: result});    // send json
     } catch(err) {
-        res.json({status: false, data: err});       // send json
+        res.json({status: false, data: err});      // send json
     }
 }
 
