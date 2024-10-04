@@ -1,13 +1,22 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger');   // document
+const cors = require('cors');
 
 const mongoose = require('mongoose');
 
-app.use(express.json());    // To read input json in body
+// We define the addresses that can make a request to our server
+app.use(cors({
+    origin: ['http://localhost:8000', 'http://www.aueb.gr']
+}))
+
+app.use(express.json());                        // To read input json in body
+app.use(express.urlencoded({extended: true})); // To read the form
+
+// When / is required show that files inside the `files` directory
+app.use('/', express.static('files'));
 
 // process.env is used to read from .env file
 // Connect returns a Promise object
@@ -38,6 +47,4 @@ app.use('/api-docs',
         swaggerUi.serve,    // a new server for backend documentation
         swaggerUi.setup(swaggerDocument.options))
 
-app.listen(port, () => {
-    console.log(`Server is up on port ${port}.`);
-})
+module.exports = app;

@@ -1,0 +1,96 @@
+{
+  message: 'success in reading all users',
+  level: 'info',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:12:09'
+}
+{
+  message: 'Checking error logging.',
+  level: 'error',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:12:09'
+}
+{
+  message: 'success in reading all users',
+  level: 'info',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:25:15'
+}
+{
+  message: 'Checking error logging.',
+  level: 'error',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:25:15'
+}
+{
+  message: 'success in reading all users',
+  level: 'info',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:25:29'
+}
+{
+  message: 'Checking error logging.',
+  level: 'error',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:25:29'
+}
+{
+  message: 'success in reading all users',
+  level: 'info',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:26:36'
+}
+{
+  message: 'Checking error logging.',
+  level: 'error',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:26:36'
+}
+{
+  message: 'success in reading all users',
+  level: 'info',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:30:55'
+}
+{
+  message: 'Checking error logging.',
+  level: 'error',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:30:55'
+}
+{
+  message: 'success in reading all users',
+  level: 'info',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:34:39'
+}
+{
+  message: 'Checking error logging.',
+  level: 'error',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:34:39'
+}
+{
+  message: 'success in reading all users',
+  level: 'info',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:34:47'
+}
+{
+  message: 'Checking error logging.',
+  level: 'error',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:34:47'
+}
+{
+  message: 'success in reading all users',
+  level: 'info',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:40:08'
+}
+{
+  message: 'Checking error logging.',
+  level: 'error',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-19:40:08'
+}

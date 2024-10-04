@@ -1,0 +1,6 @@
+{
+  message: 'success in reading all users',
+  level: 'info',
+  label: 'winston custom format',
+  timestamp: '03-10-2024-18:56:34'
+}

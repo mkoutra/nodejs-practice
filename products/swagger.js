@@ -266,6 +266,48 @@ exports.options = {
                 }
             }
         },
+        "/api/users-products/{username}/products/{id}": {
+            "patch": {
+                "tags": ["Users and Products"],
+                "description": "Update user's product.",
+                "parameters": [{
+                    "name": "username",
+                    "in": "path",
+                    "require": true,
+                    "description": "User's username.",
+                    "type": "string"
+                }, {
+                    "name": "id",
+                    "in": "path",
+                    "require": true,
+                    "description": "Product's id.",
+                    "type": "string"
+                }],
+                "requestBody": {
+                    "description": "Quantity of product to update",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "product": {
+                                        "type": "object",
+                                        "properties": {
+                                            "quantity": {"type": "number"}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                },
+                "response": {
+                    "200": {
+                        "description": "Product of user updated."
+                    }
+                }
+            }
+        },
         "/api/products": {
             "get": {
                 "tags": ["Products"],
