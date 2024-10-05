@@ -42,7 +42,6 @@ const logger = createLogger({
                 format.timestamp(),
                 format.json()
             )
-
         })
     ]
 })

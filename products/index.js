@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 
+// Swagger is for documentation
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger');   // document
+
+// cors to configure Cross Origin Specs
 const cors = require('cors');
 
 const mongoose = require('mongoose');
@@ -25,8 +28,6 @@ mongoose.connect(process.env.MONGODB_URI)
             () => { console.log(`Connection to MongoDB established.`)},
             err => { console.log('Failed to connect to MongoDB.')}   // In case of error
         )
-
-
 const user = require('./routes/user.routes')
 const userProduct = require('./routes/user.product.routes');
 const product = require('./routes/product.routes');

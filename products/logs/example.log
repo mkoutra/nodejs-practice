@@ -100,3 +100,27 @@
   label: 'winston custom format',
   timestamp: '03-10-2024-19:40:08'
 }
+{
+  message: 'success in reading all users',
+  level: 'info',
+  label: 'winston custom format',
+  timestamp: '05-10-2024-15:14:22'
+}
+{
+  message: 'Checking error logging.',
+  level: 'error',
+  label: 'winston custom format',
+  timestamp: '05-10-2024-15:14:22'
+}
+{
+  message: 'success in reading all users',
+  level: 'info',
+  label: 'winston custom format',
+  timestamp: '05-10-2024-15:14:49'
+}
+{
+  message: 'Checking error logging.',
+  level: 'error',
+  label: 'winston custom format',
+  timestamp: '05-10-2024-15:14:49'
+}
